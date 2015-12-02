@@ -49,11 +49,11 @@ class sysoverview_module
 				$this->container->get('forumhulp.helper')->detail('forumhulp/sysoverview');
 				$this->tpl_name = 'acp_ext_details';
 			break;
-			
+
 			case 'search':
 				$this->get_services();
 				$this->cat = ($this->search) ? $this->searchForService($this->search, $this->services) : $this->cat;
-			
+
 			default:
 
 				$this->containerBuilder = $this->getContainerBuilder();
@@ -66,7 +66,7 @@ class sysoverview_module
 	*/
 	protected function outputServices($sk = 'service', $sd = 'a')
 	{
-		$this->get_services();		
+		$this->get_services();
 		$total_services = $this->services['total_services'];
 		unset( $this->services['total_services']);
 
@@ -78,22 +78,22 @@ class sysoverview_module
 			$this->template->assign_block_vars('tabs', array(
 				'CAT_NAME'		=> $cat_title,
 				'SELECTED'		=> ($cat_title == $this->cat) ? ' activetab': '',
-				'U_ACTION'		=> $this->u_action . '&amp;tab=' . $cat_title . (($this->search) ? '&amp;search=' . $this->search : '') 
+				'U_ACTION'		=> $this->u_action . '&amp;tab=' . $cat_title . (($this->search) ? '&amp;search=' . $this->search : '')
 			));
 		}
-		
+
 		if ($this->cat == 'parameters')
 		{
 			$this->parameters = $this->containerBuilder->getParameterBag()->all();
-			
+
 			if ($sk == 'service')
 			{
 				($sd == 'a') ? ksort($this->parameters) : krsort($this->parameters);
 			} else
 			{
-				($sd == 'a') ? asort($this->parameters) : arsort($this->parameters);	
+				($sd == 'a') ? asort($this->parameters) : arsort($this->parameters);
 			}
-			
+
 			$total_services = $total_service = sizeof($this->parameters);
 			foreach($this->parameters as $key => $parameter)
 			{
@@ -156,7 +156,7 @@ class sysoverview_module
 					$arg = array();
 					$tag = (array_keys($definition->getTags()));
 					foreach($definition->getArguments() as $key2 => $argument)
-					{					
+					{
 						if (is_object($argument))
 						{
 							foreach((array) $argument as $id => $value)
@@ -171,7 +171,7 @@ class sysoverview_module
 						}
 					}
 				}
-				
+
 				$this->services[$cat][$key] = array(
 					'service'		=> $serviceId,
 					'scope'			=> ($indef) ? $definition->getScope() : '',
@@ -181,7 +181,7 @@ class sysoverview_module
 				);
 				$i++;
 			}
-			
+
 			$this->route =  $this->container->get('router');
 			$this->routes = $this->route->get_routes();
 			foreach($this->routes as $key => $route)
@@ -196,7 +196,7 @@ class sysoverview_module
 			}
 
 			ksort($this->services);
-			$this->services['total_services'] = $i;		
+			$this->services['total_services'] = $i;
 			unset($serviceIds, $definition, $this->routes);
 			$this->cache->put('_service_cats', $this->services, 1800);
 		}
@@ -217,7 +217,6 @@ class sysoverview_module
 				}
 			}
 		}
-		
 	}
 
 	/**
@@ -275,7 +274,7 @@ class sysoverview_module
 	{
 		$phpbb_config_php_file = new \phpbb\config_php_file($this->phpbb_root_path, $this->php_ext);
 		if (version_compare($this->config['version'], '3.2.*', '<'))
-		{ 
+		{
 			$container_builder = new \phpbb\di\container_builder($phpbb_config_php_file, $this->phpbb_root_path, $this->php_ext);
 			$container_builder->set_compile_container(true);
 			$container_builder->set_dump_container(false);
@@ -323,62 +322,62 @@ class sysoverview_module
 	{
 		$cat_ary = array(
 			'search' => array(
-					  0 => '',
-					  1 => 'attachment',
-					  2 => 'avatar',
-					  3 => 'feed',
-					  4 => 'mimetype',
-					  5 => 'router',
-					  6 => 'message',
-					  7 => 'text_formatter',
-					  8 => 'text_reparser',
-					  9 => 'ext', 
-					 10 => 'config',
-					 11 => 'console',
-					 12 => 'cron',
-					 13 => 'dbal',
-					 14 => 'cache',
-					 15 => 'acl',
-					 16 => 'auth',
-					 17 => 'migrator',
-					 18 => 'language',
-					 19 => 'core',
-					 20 => 'captcha',
-					 21 => 'template',
-					 22 => 'groupposition',
-					 23 => 'passwords',
-					 24 => 'profilefields',
-					 25 => 'notification'),
+					0 => '',
+					1 => 'attachment',
+					2 => 'avatar',
+					3 => 'feed',
+					4 => 'mimetype',
+					5 => 'router',
+					6 => 'message',
+					7 => 'text_formatter',
+					8 => 'text_reparser',
+					9 => 'ext',
+					10 => 'config',
+					11 => 'console',
+					12 => 'cron',
+					13 => 'dbal',
+					14 => 'cache',
+					15 => 'acl',
+					16 => 'auth',
+					17 => 'migrator',
+					18 => 'language',
+					19 => 'core',
+					20 => 'captcha',
+					21 => 'template',
+					22 => 'groupposition',
+					23 => 'passwords',
+					24 => 'profilefields',
+					25 => 'notification'),
 			'replace' => array(
-					  0 => 'general',
-					  1 => 'files',
-					  2 => 'files',
-					  3 => 'content',
-					  4 => 'files',
-					  5 => 'routing',
-					  6 => 'content',
-					  7 => 'content',
-					  8 => 'content',
-					  9 => 'extension',
-					 10 => 'controller',
-					 11 => 'controller',
-					 12 => 'controller',
-					 13 => 'controller',
-					 14 => 'controller',
-					 15 => 'controller',
-					 16 => 'controller',
-					 17 => 'module',
-					 18 => 'module',
-					 19 => 'module',
-					 20 => 'module',
-					 21 => 'module',
-					 22 => 'user',
-					 23 => 'user',
-					 24 => 'user',
-					 25 => 'user'
-				)	
+					0 => 'general',
+					1 => 'files',
+					2 => 'files',
+					3 => 'content',
+					4 => 'files',
+					5 => 'routing',
+					6 => 'content',
+					7 => 'content',
+					8 => 'content',
+					9 => 'extension',
+					10 => 'controller',
+					11 => 'controller',
+					12 => 'controller',
+					13 => 'controller',
+					14 => 'controller',
+					15 => 'controller',
+					16 => 'controller',
+					17 => 'module',
+					18 => 'module',
+					19 => 'module',
+					20 => 'module',
+					21 => 'module',
+					22 => 'user',
+					23 => 'user',
+					24 => 'user',
+					25 => 'user'
+				)
 		);
-		
+
 		return ($cat === true) ? array_unique(array_merge($cat_ary['search'], $cat_ary['replace'])) : str_replace($cat_ary['search'], $cat_ary['replace'], (string) $cat);
 	}
 }

@@ -32,7 +32,7 @@ $lang = array_merge($lang, array(
 	'ACP_SYSOVERVIEW_CLASS'		=> 'Classname',
 	'ACP_SYSOVERVIEW'			=> 'services',
 	'ACP_PARAMETER'				=> 'parameters',
-	
+
 	'ACP_SYSOVERVIEW_EXPLAIN'	=> 'A categorized overview of %1$s in your board with their dependencies.<br />There are  %2$s %1$s in this board and  %3$s in this category',
 	'FH_HELPER_NOTICE'			=> 'Forumhulp helper application does not exist!<br />Download <a href="">forumhulp/helper</a> and copy the helper folder to your forumhulp extension folder.',
 	'SYSOVERVIEW_NOTICE'		=> '<div class="phpinfo"><p class="entry">This extension resides in %1$s » %2$s » %3$s.</p></div>',
