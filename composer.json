@@ -1,0 +1,40 @@
+{
+    "name": "forumhulp/sysoverview",
+    "type": "phpbb-extension",
+    "description": "Show services, scopes, tag, dependencies and class of services, routes and parameters in ACP",
+    "homepage": "http://forumhulp.com",
+    "version": "3.1.0",
+    "keywords": [
+        "forumhulp",
+        "phpbb",
+        "extension",
+        "services",
+        "status"
+    ],
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "John Peskens",
+            "homepage": "http://forumhulp.com",
+            "email": "info@forumhulp.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "require-dev": {
+        "phpbb/epv": "dev-master"
+    },
+    "extra": {
+        "display-name": "System overview",
+        "soft-require": {
+            "phpbb/phpbb": ">=3.1.*"
+        },
+        "version-check": {
+            "host": "forumhulp.com",
+			"directory": "/ext",
+			"filename": "index.php?id=73"
+        }
+    }
+}

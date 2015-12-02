@@ -1,0 +1,33 @@
+/* CSS Document */
+
+h1 {position: relative;}
+
+.permissions-category .activetab a span.tabbg {padding-bottom:6px;}
+
+.table1 th + th {text-align: center; width: 200px;}
+.table1 td:last-child {text-align: left; padding:0 5px; overflow: hidden;white-space: nowrap;text-overflow: ellipsis;max-width:350px; width:auto;}
+.table1 td:nth-child(2n+1) {text-align: left; padding:0 5px;}
+
+tr.row-highlight:hover th { background-color: #DBDFE2; }
+tr.row-highlight2:hover td { background-color: #E4E8EB; }
+tr.row-highlight2:hover th { background-color: #E4E8EB; }
+
+.permissions-panel th a:link, .permissions-panel th a:hover, .permissions-panel th a:visited {display:inline;}
+.tabbg {text-transform:capitalize;}
+
+.searchedfor > th {font-weight:bold !important;}
+.searchedfor > td {font-weight:bold !important;}
+
+.fa-arrow-up, .fa-arrow-down {float:right; color:#fff; padding: 0 2px;}
+
+@media only screen and (max-width: 700px), only screen and (max-device-width: 700px) {
+    table.responsive.show-header thead, table.responsive.show-header th {
+		display: block;
+		width: auto !important;
+		text-align: left !important;
+		margin: 0;
+	}
+}
+
+#act-arrow {color:#CECECE;}
+

@@ -1,0 +1,81 @@
+<!-- IF S_ALLOW_CDN -->
+<!-- INCLUDECSS //maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css -->
+<!-- ELSE -->
+<!-- INCLUDECSS {ROOT_PATH}ext/forumhulp/helper/css/font-awesome.min.css -->
+<!-- ENDIF -->
+<!-- INCLUDECSS {ROOT_PATH}ext/forumhulp/helper/css/jquery.simpledialog.css -->
+<!-- INCLUDECSS {ROOT_PATH}ext/forumhulp/helper/css/ext_details.css -->
+<!-- INCLUDECSS css/sysoverview.css -->
+<!-- INCLUDE overall_header.html -->
+
+<a name="maincontent"></a>
+
+<h1>{L_ACP_SYSOVERVIEW_TITLE} <a href="{U_ACTION}&amp;action=details" class="simpledialog"><i class="fa fa-info-circle"></i></a></h1>
+
+<p>{ACP_SYSOVERVIEW_EXPLAIN}</p>
+
+<div id="table_container">
+		<div id="advanced00">
+			<div class="permissions-category">
+				<ul>
+				<!-- BEGIN tabs -->
+						<li class="permissions-preset-custom{tabs.SELECTED}" id="tab00{tabs.S_ROW_COUNT}">
+						<a href="{tabs.U_ACTION}"><span class="tabbg">{tabs.CAT_NAME}</span></a></li>	
+				<!-- END tabs -->
+                	<li style="text-align:right;">
+                    <form action="" style="padding-top:2px;" method="post">
+                        <input type="hidden" name="action" value="search" />
+                        <input type="search" name="search" placeholder="Search for..." value="{SEARCHED}" />
+                        <input type="submit" name="sa" value="{L_SEARCH}" />
+                    </form>
+                    </li>
+				</ul>
+			</div>
+			<div class="permissions-panel">
+				<div class="tablewrap">
+					<table class="table1 not-responsive">
+					<colgroup>
+						<col class="permissions-name" />
+						<col class="permissions-yes" />
+						<col class="permissions-no" />
+						<col class="permissions-never" />
+					</colgroup>
+					<thead>
+					<tr>
+						<th class="name" scope="col"><strong><!-- IF SERVICES -->{L_ACP_SYSOVERVIEW_NAME}<!-- IF IN_ROUTING --> / {L_ACP_ROUTE_NAME}<!-- ENDIF --><!-- ELSE -->{L_ACP_PARAMETER_NAME}<!-- ENDIF --></strong>
+                        <a href="{U_ACTION}&amp;sk=service&amp;sd=d" title="{L_DESCENDING}"><i class="fa fa-arrow-up"<!-- IF U_NAME == 'service' and U_SORT == 'd' --> id="act-arrow"<!-- ENDIF -->></i></a>
+                <a href="{U_ACTION}&amp;sk=service&amp;sd=a" title="{L_ASCENDING}"><i class="fa fa-arrow-down"<!-- IF U_NAME == 'service' and U_SORT == 'a' --> id="act-arrow"<!-- ENDIF -->></i></a>
+                </th>
+						<th class="value permissions-yes" scope="col"><!-- IF SERVICES -->{L_ACP_SYSOVERVIEW_SCOPE}<!-- ELSE -->{L_ACP_PARAMETER_VALUE}<!-- ENDIF -->
+                        <a href="{U_ACTION}&amp;sk=scope&amp;sd=d" title="{L_DESCENDING}"><i class="fa fa-arrow-up"<!-- IF U_NAME == 'scope' and U_SORT == 'd' --> id="act-arrow"<!-- ENDIF -->></i></a>
+                <a href="{U_ACTION}&amp;sk=scope&amp;sd=a" title="{L_ASCENDING}"><i class="fa fa-arrow-down"<!-- IF U_NAME == 'scope' and U_SORT == 'a' --> id="act-arrow"<!-- ENDIF -->></i></a></th>
+						<!-- IF SERVICES -->
+                        <th class="value permissions-yes" scope="col">{L_ACP_SYSOVERVIEW_TAG}<!-- IF IN_ROUTING --> / {L_ACP_ROUTE_METHOD}<!-- ENDIF -->
+                        <a href="{U_ACTION}&amp;sk=tag&amp;sd=d" title="{L_DESCENDING}"><i class="fa fa-arrow-up"<!-- IF U_NAME == 'tag' and U_SORT == 'd' --> id="act-arrow"<!-- ENDIF -->></i></a>
+                <a href="{U_ACTION}&amp;sk=tag&amp;sd=a" title="{L_ASCENDING}"><i class="fa fa-arrow-down"<!-- IF U_NAME == 'tag' and U_SORT == 'a' --> id="act-arrow"<!-- ENDIF -->></i></a></th>
+						<th class="value permissions-never" scope="col">{L_ACP_SYSOVERVIEW_CLASS}<!-- IF IN_ROUTING --> / {L_ACP_ROUTE_PATH}<!-- ENDIF -->
+                        <a href="{U_SORT}&amp;sk=class&amp;sd=d" title="{L_DESCENDING}"><i class="fa fa-arrow-up"<!-- IF U_NAME == 'class' and U_SORT == 'd' --> id="act-arrow"<!-- ENDIF -->></i></a>
+                <a href="{U_ACTION}&amp;sk=class&amp;sd=a" title="{L_ASCENDING}"><i class="fa fa-arrow-down"<!-- IF U_NAME == 'class' and U_SORT == 'a' --> id="act-arrow"<!-- ENDIF -->></i></a></th>
+					<!-- ENDIF-->
+                    </tr>
+					</thead>
+					<tbody>
+					<!-- BEGIN service -->
+						<tr class="{service.SEARCHED} <!-- IF service.S_ROW_COUNT is even -->row4 row-highlight<!-- ELSE -->row3 row-highlight2<!-- ENDIF -->">
+						<th class="permissions-name<!-- IF service.S_ROW_COUNT is even --> row4<!-- ELSE --> row3<!-- ENDIF -->" title="{service.DEPENDENCY}">{service.SERVICE}</th>
+						<td class="permissions-yes">{service.SCOPE}</td>
+                        <!-- IF SERVICES -->
+						<td class="permissions-yes">{service.TAG}</td>
+						<td class="permissions-never">{service.CLASS}</td>
+                        <!-- ENDIF -->
+					</tr>
+					<!-- END service -->
+					</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+</div>
+<!-- INCLUDEJS {ROOT_PATH}ext/forumhulp/helper/js/jquery.simpledialog.js -->
+<!-- INCLUDEJS js/sysoverview.js -->
+<!-- INCLUDE overall_footer.html -->
