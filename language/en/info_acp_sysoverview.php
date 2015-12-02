@@ -26,6 +26,7 @@ $lang = array_merge($lang, array(
 	'ACP_ROUTE_NAME'			=> 'Route',
 	'ACP_ROUTE_METHOD'			=> 'Method',
 	'ACP_ROUTE_PATH'			=> 'Path',
+	'ANY_MAJ'					=> 'Any',
 	'ACP_SYSOVERVIEW_SCOPE'		=> 'Scope',
 	'ACP_SYSOVERVIEW_TAG'		=> 'Tag',
 	'ACP_SYSOVERVIEW_PUBLIC'	=> 'Public',

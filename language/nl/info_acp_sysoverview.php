@@ -24,6 +24,7 @@ $lang = array_merge($lang, array(
 	'ACP_PARAMETER_VALUE'		=> 'Waarde',
 	'ACP_SYSOVERVIEW_SCOPE'		=> 'Scope',
 	'ACP_SYSOVERVIEW_TAG'		=> 'Tag',
+	'ANY_MAJ'					=> 'Alle',
 	'ACP_SYSOVERVIEW_PUBLIC'	=> 'Publiek',
 	'ACP_SYSOVERVIEW_CLASS'		=> 'Classnaam',
 	'ACP_SYSOVERVIEW'			=> 'services',
