@@ -61,9 +61,9 @@
 					</thead>
 					<tbody>
 					<!-- BEGIN service -->
-						<tr class="{service.SEARCHED} <!-- IF service.S_ROW_COUNT is even -->row4 row-highlight<!-- ELSE -->row3 row-highlight2<!-- ENDIF -->">
+					<tr class="{service.SEARCHED} <!-- IF service.S_ROW_COUNT is even -->row4 row-highlight<!-- ELSE -->row3 row-highlight2<!-- ENDIF -->">
 						<th class="permissions-name<!-- IF service.S_ROW_COUNT is even --> row4<!-- ELSE --> row3<!-- ENDIF -->" title="{service.DEPENDENCY}">{service.SERVICE}</th>
-						<td class="permissions-yes">{service.SCOPE}</td>
+						<td class="permissions-never">{service.SCOPE}</td>
                         <!-- IF SERVICES -->
 						<td class="permissions-yes">{service.TAG}</td>
 						<td class="permissions-never">{service.CLASS}</td>

@@ -182,19 +182,22 @@ class sysoverview_module
 				$i++;
 			}
 
-			$this->route =  $this->container->get('router');
-			$this->routes = $this->route->get_routes();
-			foreach($this->routes as $key => $route)
+			if (version_compare($this->config['version'], '3.2.*', '>'))
 			{
-				$this->services['routing'][++$i] = array(
-					'service'		=> $key,
-					'scope'			=> $route->getSchemes() ? implode('|', $route->getSchemes()) : $this->user->lang('ANY_MAJ'),
-					'class'			=> $route->getPath(),
-					'tag'			=> $route->getMethods() ? implode('|', $route->getMethods()) : $this->user->lang('ANY_MAJ'),
-					'dependency'	=> '' !== $route->getHost() ? $route->getHost() : $this->user->lang('ANY_MAJ')
-				);
+				$this->route =  $this->container->get('router');
+				$this->routes = $this->route->get_routes();
+				foreach($this->routes as $key => $route)
+				{
+					$this->services['routing'][++$i] = array(
+						'service'		=> $key,
+						'scope'			=> $route->getSchemes() ? implode('|', $route->getSchemes()) : $this->user->lang('ANY_MAJ'),
+						'class'			=> $route->getPath(),
+						'tag'			=> $route->getMethods() ? implode('|', $route->getMethods()) : $this->user->lang('ANY_MAJ'),
+						'dependency'	=> '' !== $route->getHost() ? $route->getHost() : $this->user->lang('ANY_MAJ')
+					);
+				}
 			}
-
+			
 			ksort($this->services);
 			$this->services['total_services'] = $i;
 			unset($serviceIds, $definition, $this->routes);
