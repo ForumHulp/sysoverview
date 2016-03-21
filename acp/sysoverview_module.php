@@ -197,7 +197,7 @@ class sysoverview_module
 					);
 				}
 			}
-			
+
 			ksort($this->services);
 			$this->services['total_services'] = $i;
 			unset($serviceIds, $definition, $this->routes);
