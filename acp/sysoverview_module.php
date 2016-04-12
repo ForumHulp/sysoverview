@@ -73,7 +73,7 @@ class sysoverview_module
 		$this->cat_ary = array_keys($this->services);
 		$this->cat_ary[] = 'parameters';
 
-		foreach($this->cat_ary as $cat_title)
+		foreach ($this->cat_ary as $cat_title)
 		{
 			$this->template->assign_block_vars('tabs', array(
 				'CAT_NAME'		=> $cat_title,
@@ -95,7 +95,7 @@ class sysoverview_module
 			}
 
 			$total_services = $total_service = sizeof($this->parameters);
-			foreach($this->parameters as $key => $parameter)
+			foreach ($this->parameters as $key => $parameter)
 			{
 				$this->template->assign_block_vars('service', array(
 					'SERVICE'		=> $key,
@@ -107,7 +107,7 @@ class sysoverview_module
 		{
 			$this->services = $this->array_sort($this->services[$this->cat], $sk, (($sd == 'a') ? SORT_ASC : SORT_DESC));
 			$total_service = sizeof($this->services);
-			foreach($this->services as $key => $service)
+			foreach ($this->services as $key => $service)
 			{
 				$this->template->assign_block_vars('service', array(
 					'SERVICE'		=> $service['service'],
@@ -155,11 +155,11 @@ class sysoverview_module
 					$indef = true;
 					$arg = array();
 					$tag = (array_keys($definition->getTags()));
-					foreach($definition->getArguments() as $key2 => $argument)
+					foreach ($definition->getArguments() as $key2 => $argument)
 					{
 						if (is_object($argument))
 						{
-							foreach((array) $argument as $id => $value)
+							foreach ((array) $argument as $id => $value)
 							{
 								$id = utf8_clean_string($id);
 								if (strpos($id, 'referenceid') !== false)
@@ -186,7 +186,7 @@ class sysoverview_module
 			{
 				$this->route =  $this->container->get('router');
 				$this->routes = $this->route->get_routes();
-				foreach($this->routes as $key => $route)
+				foreach ($this->routes as $key => $route)
 				{
 					$this->services['routing'][++$i] = array(
 						'service'		=> $key,
@@ -212,7 +212,7 @@ class sysoverview_module
 	{
 		foreach ($array as $key => $val)
 		{
-			foreach($val as $key2 => $service)
+			foreach ($val as $key2 => $service)
 			{
 				if (strpos($service['service'], $id) !== false)
 				{
