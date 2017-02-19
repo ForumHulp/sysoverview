@@ -3,7 +3,7 @@
     "type": "phpbb-extension",
     "description": "Show services, scopes, tag, dependencies and class of services, routes and parameters in ACP",
     "homepage": "http://forumhulp.com",
-    "version": "3.1.1",
+    "version": "3.1.2",
     "keywords": [
         "forumhulp",
         "phpbb",
